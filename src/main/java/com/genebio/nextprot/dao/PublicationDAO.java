@@ -17,9 +17,6 @@ import com.genebio.nextprot.domain.Publication;
 @Component("publicationDAO")
 public class PublicationDAO {
 
-	/*
-	 * 
-	 */
 	@Autowired
 	private DataSource datasource;
 	
