@@ -3,6 +3,7 @@ package com.genebio.nextprot.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.dao.PublicationDAO;
@@ -15,7 +16,7 @@ public class PublicationServiceImpl implements PublicationService{
 	@Autowired
 	private PublicationDAO publicationDAO;
 	
-	public Publication getPublicationById(@NotNull long id){
+	public Publication getPublicationById(@Value("id") long id){
 		return publicationDAO.getPublicationById(id);
 	}
 

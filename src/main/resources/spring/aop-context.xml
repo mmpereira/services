@@ -13,15 +13,10 @@
 		http://www.springframework.org/schema/aop 
 		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
+	<aop:aspectj-autoproxy />
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://dev-dbint:5432/np_dev_integration" />
-		<property name="username" value="postgres" />
-		<property name="password" value="postgres" />
-		<property name="initialSize" value="5" />
-		<property name="maxActive" value="10" />
-	</bean>
+	<bean id="serviceValidation"  class="com.genebio.nextprot.aop.ServiceValidation"></bean>
+	<bean id="serviceMonitoring"  class="com.genebio.nextprot.aop.ServiceMonitoring"></bean>
 
 </beans>
 		
