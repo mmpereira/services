@@ -14,28 +14,30 @@ import com.genebio.nextprot.domain.Publication;
 import com.genebio.nextprot.service.PublicationService;
 
 /**
- * 
  * @author dteixeira
- *
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring/applicationContext.xml"})
-public class PublicationTest  {
-	
+@ContextConfiguration(locations = { "classpath*:spring/applicationContext.xml" })
+public class PublicationTest {
+
 	@Autowired
 	private PublicationService publicationService;
 
-    @Test
-    public void testGetById() {
-    	assertEquals(publicationService.getPublicationById(6634104).getId(), 6634104);
-    }
+	@Test
+	public void testGetById() {
+		assertEquals(publicationService.getPublicationById(6634104).getId(), 6634104);
+	}
 
-    @Test
-    public void testGetByTitle() {
-    	List<Publication> pubs = publicationService.getPublicationByTitle("%Correction%");
-    	assertEquals(pubs.size(), 89);
-    }
+	@Test
+	public void testGetByTitle() {
+		List<Publication> pubs = publicationService.getPublicationByTitle("%Correction%");
+		assertEquals(pubs.size(), 89);
+	}
 
+	@Test(expected=IllegalArgumentException.class)
+	public void testExceptionHandling() {
+		publicationService.getPublicationByTitle(null);
+	}
 
 }

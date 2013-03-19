@@ -53,7 +53,7 @@ public class ServiceMonitoring {
 				builder.append("arg" + i);
 			}
 
-			builder.append("=" + o.toString());
+			builder.append("=" + ((o!=null) ? o.toString() : "null"));
 			builder.append("; ");
 		}
 

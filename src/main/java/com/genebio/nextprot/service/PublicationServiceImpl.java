@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.dao.PublicationDAO;
 import com.genebio.nextprot.domain.Publication;
-import com.sun.istack.internal.NotNull;
 
 @Component("publicationService")
 public class PublicationServiceImpl implements PublicationService{
