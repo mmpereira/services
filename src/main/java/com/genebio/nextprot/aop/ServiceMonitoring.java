@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class ServiceMonitoring {
 	
-	private static final Log LOGGER = LogFactory.getLog(ServiceMonitoring.class);
+//	private static final Log LOGGER = LogFactory.getLog(ServiceMonitoring.class);
 
 	/**
 	 * Logs information
@@ -61,7 +61,7 @@ public class ServiceMonitoring {
 		Object result =  pjp.proceed(arguments);
 		String s = "Method " + methodSignature.getDeclaringType().getName() + "." + methodSignature.getName() + " was executed in " + (System.currentTimeMillis() - start) + " (ms) with arguments: " + builder.substring(0, builder.length()-1);
 		System.out.println(s);
-		LOGGER.info(s);
+//		LOGGER.info(s);
 		return result;
 		
 	}
