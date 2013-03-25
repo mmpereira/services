@@ -22,5 +22,14 @@ public interface PublicationService {
 	 * @return
 	 */
 	public List<Publication> getPublicationByTitle(@NotNullArg @Value("title") String title);
+	
+	
+	/**
+	 * Gets publication by author
+	 * @param title
+	 * @return
+	 */
+	public List<Long> getPublicationIdsByAuthor(String authorLastName);
+
 
 }

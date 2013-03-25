@@ -14,9 +14,8 @@ import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.domain.Author;
-import com.genebio.nextprot.domain.Publication;
 
-@Component("authorDAO")
+@Component
 public class AuthorDAO {
 
 	@Autowired

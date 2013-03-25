@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.genebio.nextprot.dao.AuthorDAO;
 import com.genebio.nextprot.domain.Author;
 
-@Component("authorSrvice")
+@Component
 public class AuthorServiceImpl implements AuthorService {
 
 	@Autowired

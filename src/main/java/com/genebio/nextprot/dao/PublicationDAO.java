@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.domain.Publication;
 
-@Component("publicationDAO")
+@Component
 public class PublicationDAO {
 
 	@Autowired
 	private DataSource datasource;
 
-	private String sqlHeader = "SELECT resource_id, title, abstract_text, publication_date from nextprot.publications ";
+	private String sqlHeader = "SELECT pubs.resource_id, pubs.title, pubs.abstract_text, pubs.publication_date from nextprot.publications pubs ";
 	private static class PublicationRowMapper implements ParameterizedRowMapper<Publication> {
 
 		public Publication mapRow(ResultSet resultSet, int row) throws SQLException {
@@ -53,10 +53,17 @@ public class PublicationDAO {
 	
 		String sql = sqlHeader + "where lower(title) like lower(:title)";
 		
-		// Spring advantages: No need to open / close connection or to worry about result set...
-		// We can use named parameters which are less error prone
 		SqlParameterSource namedParameters = new MapSqlParameterSource("title", title);
 		return new NamedParameterJdbcTemplate(datasource).query(sql, namedParameters, new PublicationRowMapper());
 	
+	}
+
+
+	public List<Long> getPublicationIdsByAuthor(String authorLastName) {
+
+		String sql = "SELECT pubs.resource_id from nextprot.publications pubs inner join nextprot.pubauthors authors on (pubs.resource_id = authors.publication_id) where lower(authors.last_name) = lower(:author_name)";
+
+		SqlParameterSource namedParameters = new MapSqlParameterSource("author_name", authorLastName);
+		return new NamedParameterJdbcTemplate(datasource).queryForList(sql, namedParameters, Long.class);
 	}
 }

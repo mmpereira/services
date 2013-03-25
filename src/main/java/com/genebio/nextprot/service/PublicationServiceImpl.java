@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import com.genebio.nextprot.dao.PublicationDAO;
 import com.genebio.nextprot.domain.Publication;
 
-@Component("publicationService")
+@Component
 public class PublicationServiceImpl implements PublicationService {
 
 	@Autowired
@@ -22,6 +22,12 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public List<Publication> getPublicationByTitle(String title) {
 		return publicationDAO.getPublicationByTitle(title);
+	}
+	
+	
+	@Override
+	public List<Long> getPublicationIdsByAuthor(String authorLastName) {
+		return publicationDAO.getPublicationIdsByAuthor(authorLastName);
 	}
 
 }
