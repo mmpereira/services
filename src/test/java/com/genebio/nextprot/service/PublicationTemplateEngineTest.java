@@ -1,7 +1,5 @@
 package com.genebio.nextprot.service;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -11,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.genebio.nextprot.domain.Publication;
+import com.genebio.nextprot.template.engine.TemplateEngine;
 
 /**
  * @author dteixeira
@@ -18,28 +17,18 @@ import com.genebio.nextprot.domain.Publication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath*:spring/applicationContext.xml" })
-public class PublicationTest {
-	
+public class PublicationTemplateEngineTest {
+
 	@Autowired
 	private PublicationService publicationService;
 
 	@Autowired
-	private AuthorService authorService;
+	private TemplateEngine templateEngine;
 
 	@Test
-	public void shouldGetPublicationById() {
-		assertEquals(publicationService.getPublicationById(6634104).getId(), 6634104);
-	}
-	
-	@Test
-	public void shouldGetPublicationByTitle() {
+	public void shouldPrintAListOfPublicationsInXMLFormat() {
 		List<Publication> pubs = publicationService.getPublicationByTitle("%Correction%");
-		assertEquals(pubs.size(), 90);
-	}
-
-	@Test(expected=IllegalArgumentException.class)
-	public void shouldThrowAnIllegalArgumentException() {
-		publicationService.getPublicationByTitle(null);
+		System.out.println(this.templateEngine.getXML(pubs));
 	}
 	
 }

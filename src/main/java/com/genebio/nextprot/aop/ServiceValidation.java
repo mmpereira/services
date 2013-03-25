@@ -9,13 +9,13 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.aop.annotation.NotNullArg;
+import com.sun.istack.internal.NotNull;
 
 /**
  * @author Daniel Teixeira
  * @version $Revision$, $Date$, $Author$
  */
 @Aspect
-@Component
 public class ServiceValidation {
 
 	/**

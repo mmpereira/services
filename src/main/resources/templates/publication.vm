@@ -1,0 +1,5 @@
+<publication>
+  <publication_id>$publication.id</publication_id>
+  <title>$publication.title</title>
+  <title>$publication.publicationDate</title>
+</publication>

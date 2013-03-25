@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<publications>
+#foreach( $publication in $publications )
+  #parse("src/main/resources/templates/publication.vm")
+#end
+</publications>

@@ -15,7 +15,7 @@ public interface PublicationService {
 	 * @return
 	 */
 	public Publication getPublicationById(@NotNullArg @Value("publicationId") long id);
-
+	
 	/**
 	 * Gets publication by title case insensitive
 	 * @param title

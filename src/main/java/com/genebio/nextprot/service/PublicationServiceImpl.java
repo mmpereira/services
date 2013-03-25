@@ -10,12 +10,12 @@ import com.genebio.nextprot.dao.PublicationDAO;
 import com.genebio.nextprot.domain.Publication;
 
 @Component("publicationService")
-public class PublicationServiceImpl implements PublicationService{
+public class PublicationServiceImpl implements PublicationService {
 
 	@Autowired
 	private PublicationDAO publicationDAO;
-	
-	public Publication getPublicationById(@Value("id") long id){
+
+	public Publication getPublicationById(@Value("id") long id) {
 		return publicationDAO.getPublicationById(id);
 	}
 

@@ -7,7 +7,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -52,18 +51,12 @@ public class PublicationDAO {
 	
 	public List<Publication> getPublicationByTitle(String title) {
 	
-/*		String sql = sqlHeader + "where lower(title) like lower(:1)";
-		
-		return new JdbcTemplate(datasource).query(sql, new PublicationRowMapper(), title);
-*/
-	
 		String sql = sqlHeader + "where lower(title) like lower(:title)";
 		
 		// Spring advantages: No need to open / close connection or to worry about result set...
 		// We can use named parameters which are less error prone
 		SqlParameterSource namedParameters = new MapSqlParameterSource("title", title);
 		return new NamedParameterJdbcTemplate(datasource).query(sql, namedParameters, new PublicationRowMapper());
-
 	
 	}
 }

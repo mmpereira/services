@@ -1,9 +1,7 @@
 package com.genebio.nextprot.domain;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
-@XmlRootElement
 public class Publication {
 
 	private long id;
@@ -14,34 +12,33 @@ public class Publication {
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String getAbstractText() {
 		return abstractText;
 	}
-	
+
 	public void setAbstractText(String abstractText) {
 		this.abstractText = abstractText;
 	}
-	
+
 	public Date getPublicationDate() {
 		return publicationDate;
 	}
-	
+
 	public void setPublicationDate(Date publicationDate) {
 		this.publicationDate = publicationDate;
 	}
-
 
 }

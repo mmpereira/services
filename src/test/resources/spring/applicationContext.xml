@@ -19,6 +19,8 @@
 	<import resource="classpath*:spring/db-context.xml"/>
 	<import resource="classpath*:spring/aop-context.xml"/>
 	
+	<!-- Used to generate xml -->
+	<bean id="templateEngine"  class="com.genebio.nextprot.template.engine.VelocityTemplateEngine"></bean>
 
 </beans>
 		
