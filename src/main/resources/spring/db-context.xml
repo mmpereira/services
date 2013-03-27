@@ -21,6 +21,7 @@
 		<property name="password" value="postgres" />
 		<property name="initialSize" value="5" />
 		<property name="maxActive" value="10" />
+		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 </beans>
