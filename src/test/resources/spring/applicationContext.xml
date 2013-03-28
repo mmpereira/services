@@ -18,6 +18,7 @@
 	
 	<import resource="classpath*:spring/db-context.xml"/>
 	<import resource="classpath*:spring/aop-context.xml"/>
+	<import resource="classpath*:spring/cache-context.xml"/>
 
 </beans>
 		

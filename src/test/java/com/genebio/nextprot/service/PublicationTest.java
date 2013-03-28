@@ -42,4 +42,20 @@ public class PublicationTest {
 		publicationService.getPublicationByTitle(null);
 	}
 	
+	@Test
+	public void shouldFireCache() {
+		long startTime = System.currentTimeMillis();
+		publicationService.getPublicationIdsByAuthor("%");
+		long endTime = System.currentTimeMillis();
+
+		System.out.println("Took " + (endTime - startTime));
+
+		// should be in cache now
+		startTime = System.currentTimeMillis();
+		publicationService.getPublicationIdsByAuthor("%");
+		endTime = System.currentTimeMillis();
+		System.out.println("Took " + (endTime - startTime));
+		
+	}
+	
 }
