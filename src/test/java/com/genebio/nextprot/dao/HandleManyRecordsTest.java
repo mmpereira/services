@@ -45,7 +45,7 @@ public class HandleManyRecordsTest {
 		public Void mapRow(ResultSet resultSet, int row) throws SQLException {
 			
 			if(row % 1000 == 0){
-				System.out.println("Do some stuff");
+				//System.out.println("Do some stuff");
 			}
 			
 			return null;

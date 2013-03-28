@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Component;
 
 import com.genebio.nextprot.domain.Publication;
+import com.genebio.nextprot.domain.PublicationImpl;
 
 @Component
 public class PublicationDAO {
@@ -27,7 +28,7 @@ public class PublicationDAO {
 		public Publication mapRow(ResultSet resultSet, int row) throws SQLException {
 
 			// Need to use a mapper, but it is not so bad if we don't want to use reflection since the database may use different names
-			Publication publication = new Publication();
+			PublicationImpl publication = new PublicationImpl();
 			publication.setId(resultSet.getLong("resource_id"));
 			publication.setTitle(resultSet.getString("title"));
 			publication.setAbstractText(resultSet.getString("abstract_text"));
